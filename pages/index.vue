@@ -3,7 +3,10 @@
         <h1>{{ data }}</h1>
         <pre> {{ data }}</pre>
 
-        <button @click="submit">Submit</button>
+        <p><button @click="submit">Submit</button></p>
+
+        <p><button @click="getCookie">Get Cookie</button></p>
+        <p>{{ cookieValue }}</p>
     </div>
 </template>
 
@@ -22,6 +25,16 @@
         });
         
         console.log(response);
+    }
+
+    const cookieValue = ref('');
+
+    //Get Cookie
+    function getCookie() {
+        const cookies = document.cookie;
+        console.log("server side cookie", cookies);
+
+        cookieValue.value = cookies.includes('exampleToken') ? 'Cookie Found' : 'Cookie Not Found';
     }
 </script>
 
