@@ -83,5 +83,9 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 install
 
 ```bash
+bun add prisma -d
 
+npx prisma init
+
+npx prisma migrate dev --name init
 ```
