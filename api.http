@@ -33,3 +33,7 @@ POST {{Host_Address}}/api/submit
 ###==================== Example API ====================###
 ### Example API - GET ###
 GET {{Host_Address}}/api/example
+
+###==================== Cookie Sample API ====================###
+### Cookie Sample API - GET ###
+GET {{Host_Address}}/api/cookiesample
