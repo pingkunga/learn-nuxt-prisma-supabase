@@ -29,3 +29,7 @@ POST {{Host_Address}}/api/submit
     "name": "Faii Doe",
     "email": "kookies@gmail.com"
 }
+
+###==================== Example API ====================###
+### Example API - GET ###
+GET {{Host_Address}}/api/example
