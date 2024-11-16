@@ -1,0 +1,9 @@
+@Host_Address = http://localhost:3000
+
+
+## Rest API ##
+### Test API - GET ###
+GET {{Host_Address}}/api/test
+
+### Test API - POST ###
+POST {{Host_Address}}/api/test
