@@ -20,3 +20,12 @@ PUT {{Host_Address}}/api/cart
 
 ### Cart API - DELETE ###
 DELETE {{Host_Address}}/api/cart
+
+###==================== Submit API ====================###
+### Submit API - POST ###
+POST {{Host_Address}}/api/submit
+
+{
+    "name": "Faii Doe",
+    "email": "kookies@gmail.com"
+}
