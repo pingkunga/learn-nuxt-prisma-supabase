@@ -57,3 +57,12 @@ GET {{Host_Address}}/api/posts
 
 ### Post Blog API - GET by ID ###
 GET {{Host_Address}}/api/posts/1
+
+### Post Blog API - PUT ###
+PUT {{Host_Address}}/api/posts/1
+
+{
+    "title": "My Blog1 Update",
+    "content": "This is a pingkunga blog content Update",
+    "published": false
+}

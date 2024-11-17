@@ -1,18 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-
-
-type Tuser = {
-    name: string;
-    email: string;
-    posts?: Tpost[];
-}
-
-type Tpost = {
-    title: string;
-    content: string;
-    published: boolean;
-    author: Tuser;
-}
+import { Tpost } from "~/types/post";
 
 const prisma = new PrismaClient();
 
