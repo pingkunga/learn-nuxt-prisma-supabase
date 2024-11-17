@@ -1,5 +1,13 @@
+import { postcss } from "tailwindcss";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   /*
     IN ENV File 
     ======================================

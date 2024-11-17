@@ -95,5 +95,6 @@ npx prisma migrate dev --name init
 CSS https://tailwindcss.com/docs/guides/nuxtjs#standard
 
 ```bash
-
+bun add -d tailwindcss postcss autoprefixer
+bun x tailwindcss init
 ```
