@@ -51,3 +51,6 @@ POST {{Host_Address}}/api/posts
         "email": "ping@example.com"
     }
 }
+
+### Post Blog API - GET ###
+GET {{Host_Address}}/api/posts
