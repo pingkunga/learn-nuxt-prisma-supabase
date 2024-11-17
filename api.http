@@ -37,3 +37,17 @@ GET {{Host_Address}}/api/example
 ###==================== Cookie Sample API ====================###
 ### Cookie Sample API - GET ###
 GET {{Host_Address}}/api/cookiesample
+
+###==================== Post Blog API ====================###
+### Post Blog API - POST ###
+POST {{Host_Address}}/api/posts
+
+{
+    "title": "My Blog2",
+    "content": "This is a pingkunga blog content",
+    "published": true,
+    "author":{
+        "name": "ping Doe",
+        "email": "ping@example.com"
+    }
+}
