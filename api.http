@@ -43,8 +43,8 @@ GET {{Host_Address}}/api/cookiesample
 POST {{Host_Address}}/api/posts
 
 {
-    "title": "My Blog2",
-    "content": "This is a pingkunga blog content",
+    "title": "Sudatip blog",
+    "content": "This is a Sudatip blog content",
     "published": true,
     "author":{
         "name": "ping Doe",
@@ -54,6 +54,9 @@ POST {{Host_Address}}/api/posts
 
 ### Post Blog API - GET ###
 GET {{Host_Address}}/api/posts
+
+### Post Blog API - GET with title ###
+GET {{Host_Address}}/api/posts?title=My Blog2
 
 ### Post Blog API - GET by ID ###
 GET {{Host_Address}}/api/posts/1

@@ -3,6 +3,10 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
+
+    const query = getQuery(event);
+    const searchTitle = query.title as string || '';
+
     const posts = await prisma.post.findMany({
         select: {
             id: true,
@@ -13,7 +17,13 @@ export default defineEventHandler(async (event) => {
             id: 'desc'
         },
         where: {
-            published: true
+            published: true,
+            ...(searchTitle && {
+                title: {
+                    contains: searchTitle,
+                    mode: 'insensitive' // Case-insensitive search
+                }
+            })
         }
     });
 
