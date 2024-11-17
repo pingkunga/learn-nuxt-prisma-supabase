@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prismaClient = new PrismaClient();
 
-export default async (event: any) => {
+export default defineEventHandler (async (event) => {
 
     const postid = getRouterParam(event, 'id');
 
@@ -36,4 +36,4 @@ export default async (event: any) => {
     }
 
     return post;
-}
+})
