@@ -82,10 +82,18 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 install
 
+DB
+
 ```bash
 bun add prisma -d
 
 npx prisma init
 
 npx prisma migrate dev --name init
+```
+
+CSS https://tailwindcss.com/docs/guides/nuxtjs#standard
+
+```bash
+
 ```
