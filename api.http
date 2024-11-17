@@ -72,3 +72,8 @@ PUT {{Host_Address}}/api/posts/1
 
 ### Post Blog API - DELETE ###
 DELETE {{Host_Address}}/api/posts/2
+
+###==================== User API ====================###'
+### User API - GET ###
+GET {{Host_Address}}/api/users
+
