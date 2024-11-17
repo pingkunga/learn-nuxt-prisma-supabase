@@ -54,3 +54,6 @@ POST {{Host_Address}}/api/posts
 
 ### Post Blog API - GET ###
 GET {{Host_Address}}/api/posts
+
+### Post Blog API - GET by ID ###
+GET {{Host_Address}}/api/posts/1
