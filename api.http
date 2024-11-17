@@ -66,3 +66,6 @@ PUT {{Host_Address}}/api/posts/1
     "content": "This is a pingkunga blog content Update",
     "published": false
 }
+
+### Post Blog API - DELETE ###
+DELETE {{Host_Address}}/api/posts/2
