@@ -98,3 +98,9 @@ CSS https://tailwindcss.com/docs/guides/nuxtjs#standard
 bun add -d tailwindcss postcss autoprefixer
 bun x tailwindcss init
 ```
+
+DASISY UI
+
+```bash
+bun add -d daisyui
+```
