@@ -9,6 +9,16 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  //https://supabase.nuxtjs.org/get-started
+  modules: ['@nuxtjs/supabase'],
+  supabase: {
+    redirect: true,
+    cookieOptions: {
+      secure: false,
+    },
+  },
+
   /*
     IN ENV File 
     ======================================
