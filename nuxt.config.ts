@@ -11,9 +11,10 @@ export default defineNuxtConfig({
   },
 
   //https://supabase.nuxtjs.org/get-started
+  //redirect = false dev ต้อง handle เอง
   modules: ['@nuxtjs/supabase'],
   supabase: {
-    redirect: true,
+    redirect: false,
     cookieOptions: {
       secure: false,
     },
