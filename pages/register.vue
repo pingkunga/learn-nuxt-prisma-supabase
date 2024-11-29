@@ -9,25 +9,12 @@
     const status = ref(false);
 
     const supabase = useSupabaseClient();
+    const router = useRouter();
 
     const handleSubmit = async (e: Event) => {
         console.log('email', email.value);
         console.log('password', password.value);
         e.preventDefault();
-        /*
-        const { user, session, error } = await supabase.auth.signUp({
-            email: email.value,
-            password: password.value,
-        });
-
-        if (error) {
-            status.value = false;
-            message.value = error.message;
-        } else {
-            status.value = true;
-            message.value = 'User created successfully';
-        }
-            */
 
         if (email.value === '' || password.value === '') {
             status.value = false;
@@ -47,6 +34,10 @@
 
             message.value = 'User created successfully';
             status.value = true;
+
+            //redirect to login page
+            await new Promise(resolve => setTimeout(resolve, 2000))
+            router.push('/login');
         }  
         catch (error: unknown) {
             if (error instanceof Error) {
