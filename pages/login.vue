@@ -1,5 +1,56 @@
 <script setup lang="ts">
 
+  const email = ref('');
+  const password = ref('');
+
+  const message = ref('');
+  const status = ref(false);
+  const router = useRouter();
+
+  const supabase = useSupabaseClient();
+
+  const handleSubmit = async (e: Event) => {
+      console.log('email', email.value);
+      console.log('password', password.value);
+      e.preventDefault();
+
+      if (email.value === '' || password.value === '') {
+          status.value = false;
+          message.value = 'Please fill in all fields';
+          return;
+      }
+
+      try{
+          const { error } = await supabase.auth.signInWithPassword({
+              email: email.value,
+              password: password.value,
+          });
+
+          if (error) {
+              throw error;
+          }
+
+          message.value = 'Logged successful';
+          status.value = true;
+
+          //redirect to dashboard page
+          await new Promise(resolve => setTimeout(resolve, 2000))
+          router.push('/backend/dashboard');
+      }  
+      catch (error: unknown) {
+          if (error instanceof Error) {
+              //supabase error
+              status.value = false;
+              message.value = error.message;
+          }
+          else {
+              //other error
+              status.value = false;
+              message.value = 'An error occurred';
+          }
+      }
+
+  };
   // ไว้กำหนด Meta ของหน้าเว็บ เช่น title, description, keyword รวมทั้ง layout ที่ใช้
   definePageMeta({
       layout: 'auth',
@@ -30,14 +81,16 @@
         <div class="card-body lg:w-1/2">
           <h2 class="card-title text-2xl font-bold mb-6">Login</h2>
   
+          <p v-if="message" :class="status ? 'bg-success': 'bg-error'" class="p-3 rounded-lg text-white">{{ message }}</p>
+
           <!-- ฟอร์มเข้าสู่ระบบด้วยอีเมล -->
-          <form>
+          <form @submit.prevent="handleSubmit">
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Email</span>
               </label>
               <label class="input input-bordered flex items-center gap-2">
-                <input type="email" class="grow" placeholder="email@example.com" />
+                <input v-model="email" type="email" class="grow" placeholder="email@example.com" />
               </label>
             </div>
             <div class="form-control mt-4">
@@ -45,7 +98,7 @@
                 <span class="label-text">Password</span>
               </label>
               <label class="input input-bordered flex items-center gap-2">
-                <input type="password" class="grow" placeholder="Enter password" />
+                <input v-model="password" type="password" class="grow" placeholder="Enter password" />
               </label>
             </div>
             <div class="form-control mt-6">
