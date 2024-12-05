@@ -2,6 +2,7 @@
 
   const email = ref('');
   const password = ref('');
+  
 
   const message = ref('');
   const status = ref(false);
@@ -9,7 +10,7 @@
 
   const supabase = useSupabaseClient();
 
-  const handleSubmit = async (e: Event) => {
+  const handleLoginWithUserPass = async (e: Event) => {
       console.log('email', email.value);
       console.log('password', password.value);
       e.preventDefault();
@@ -100,7 +101,7 @@
           <p v-if="message" :class="status ? 'bg-success': 'bg-error'" class="p-3 rounded-lg text-white">{{ message }}</p>
 
           <!-- ฟอร์มเข้าสู่ระบบด้วยอีเมล -->
-          <form @submit.prevent="handleSubmit">
+          <form @submit.prevent="handleLoginWithUserPass">
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Email</span>
