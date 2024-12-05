@@ -21,13 +21,29 @@
       }
 
       try{
-          const { error } = await supabase.auth.signInWithPassword({
+          const { data, error } = await supabase.auth.signInWithPassword({
               email: email.value,
               password: password.value,
           });
 
           if (error) {
               throw error;
+          }
+
+          //logged successful
+          const accessToken = data?.session?.access_token;
+          const refreshToken = data?.session?.refresh_token;
+
+          //save token to cookie
+          if (accessToken && refreshToken) {
+              const token = {
+                  accessToken,
+                  refreshToken,
+              };
+              const auth_tokens = useCookie('auth_tokens', {
+                  maxAge: 60 * 60 * 24, // 1 days
+              });
+              auth_tokens.value = token;
           }
 
           message.value = 'Logged successful';
